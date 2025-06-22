@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Desktop Portfolio</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body, html {
+      height: 100%;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    body {
+      background: url('rainbow.jpg') no-repeat center center fixed;
+      background-size: cover;
+      overflow: hidden;
+    }
+
+    .sidebar {
+      position: fixed;
+      top: 0;
+      left: 20px;
+      width: 80px;
+      height: 100vh;
+      background: transparent;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 15px 0;
+      gap: 25px;
+    }
+
+    .sidebar-app {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      color: white;
+      font-size: 10px;
+      font-weight: 500;
+    }
+
+    .sidebar-app img {
+      width: 55px;
+      height: 55px;
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+
+    .sidebar-app img:hover {
+      transform: scale(1.1);
+    }
+
+    .taskbar {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 40px;
+      background: rgba(220, 220, 220, 0.95);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 15px;
+    }
+
+    .taskbar-apps {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .taskbar-apps img {
+      width: 28px;
+      height: 28px;
+      cursor: pointer;
+    }
+
+    .system-icons {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-family: monospace;
+      font-weight: bold;
+    }
+
+    #desktop {
+      position: fixed;
+      top: 0;
+      left: 100px;
+      right: 0;
+      bottom: 40px;
+    }
+
+    .app-window {
+      position: absolute;
+      top: 60px;
+      left: 100px;
+      width: 360px;
+      height: 250px;
+      background: #c0c0c0;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+      color: #333;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .app-window .title-bar {
+      background: #8e8d8d;
+      padding: 10px;
+      font-weight: bold;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .app-window .close-btn {
+      background: transparent;
+      border: none;
+      color: #333;
+      font-size: 20px;
+      cursor: pointer;
+    }
+
+    .app-window .content {
+      padding: 15px;
+      flex-grow: 1;
+      font-size: 14px;
+      overflow-y: auto;
+    }
+
+    .full-file-btn {
+      margin-top: 15px;
+      padding: 8px 12px;
+      background: #0078d7;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .full-file-btn:hover {
+      background: #005a9e;
+    }
+
+    #startMenu {
+      position: fixed;
+      bottom: 45px;
+      left: 15px; 
+      width: 300px;
+      max-height: 400px;
+      background: rgba(40, 40, 40, 0.98);
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.5);
+      padding: 10px;
+      display: none;
+      flex-wrap: wrap;
+      gap: 10px;
+      z-index: 1000;
+    }
+
+    #startMenu .sidebar-app {
+      width: 60px;
+      font-size: 10px;
+    }
+
+    #recycleBin {
+      position: fixed;
+      bottom: 60px;
+      right: 20px;
+      text-align: center;
+    }
+
+    #recycleBin img {
+      width: 50px;
+      height: 50px;
+      cursor: pointer;
+    }
+
+    #recycleBin div {
+      color: white;
+      font-size: 12px;
+    }
+
+    /* Image Tab Styles */
+    .image-tab {
+  position: absolute;
+  width: 300px;
+  height: 200px;
+  background: #c0c0c0;
+  border: 2px solid #999;
+  box-shadow: 4px 4px 10px rgba(0,0,0,0.3);
+  font-family: 'Segoe UI', sans-serif;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.image-tab .tab-header {
+  background: #ddd;
+  padding: 5px 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: bold;
+  border-bottom: 1px solid #aaa;
+}
+
+.image-tab .close-tab {
+  background: transparent;
+  border: none;
+  color: #333;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.image-tab img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+  </style>
+</head>
+<body>
+
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <div class="sidebar-app" data-appid="1">
+      <img src="MSPaint.webp" />
+      <span>Learning Outcome 1</span>
+    </div>
+    <div class="sidebar-app" data-appid="2">
+      <img src="microsoft-word-2019-05-01.webp" />
+      <span>Learning Outcome 2</span>
+    </div>
+    <div class="sidebar-app" data-appid="3">
+      <img src="Google_Chrome_icon_(February_2022).svg.png" />
+      <span>Learning Outcome 3</span>
+    </div>
+    <div class="sidebar-app" data-appid="4">
+      <img src="Google-Translate-Icon-Logo-January-August-2015.png" />
+      <span>Learning Outcome 4</span>
+    </div>
+    <div class="sidebar-app" data-appid="5">
+      <img src="gmail-new.png" />
+      <span>Learning Outcome 5</span>
+    </div>
+    <div class="sidebar-app" data-appid="mywork">
+      <img src="sm_5b321c99945a2.jpg" />
+      <span>My Work</span>
+    </div>
+    <div class="sidebar-app" data-appid="aboutme">
+      <img src="woman-icon-vector-trendy-flat-260nw-743283871.webp" />
+      <span>About Me</span>
+    </div>
+  </div>
+
+  <!-- Desktop Area -->
+  <div id="desktop"></div>
+
+  <!-- Recycle Bin -->
+  <div id="recycleBin" class="sidebar-app">
+    <img src="bin.png" />
+    <div>Recycle Bin</div>
+  </div>
+
+  <!-- Start Menu -->
+  <div id="startMenu"></div>
+
+  <!-- Taskbar -->
+  <div class="taskbar">
+    <div class="taskbar-apps" style="display: flex; align-items: center; gap: 10px;">
+      <img id="startButton" src="https://img.icons8.com/ios-filled/28/000000/windows8.png" />
+      <div id="taskbarApps"></div>
+    </div>
+    <div class="system-icons">
+      <img src="https://img.icons8.com/ios-filled/20/000000/wifi.png" />
+      <div id="clock">--:--</div>
+    </div>
+  </div>
+
+  <script>
+    const apps = {
+      1: {
+        title: 'Learning Outcome 1',
+        icon: 'MSPaint.webp',
+        content: `<p><strong>Conceptualize, design, and develop interactive media products</strong></p><p>You create engaging concepts and translate them into interactive validated media products...</p>`,
+        fileUrl: 'LO1.html'
+      },
+      2: {
+        title: 'Learning Outcome 2',
+        icon: 'microsoft-word-2019-05-01.webp',
+        content: `<p><strong>Transferable production</strong></p><p>You document and comment your code using version control...</p>`,
+        fileUrl: 'LO2.html'
+      },
+      3: {
+        title: 'Learning Outcome 3',
+        icon: 'Google_Chrome_icon_(February_2022).svg.png',
+        content: `<p><strong>Creative iterations</strong></p><p>You present the successive iterations of your creative process...</p>`,
+        fileUrl: 'LO3.html'
+      },
+      4: {
+        title: 'Learning Outcome 4',
+        icon: 'Google-Translate-Icon-Logo-January-August-2015.png',
+        content: `<p><strong>Professional standards</strong></p><p>You apply a methodological approach...</p>`,
+        fileUrl: 'LO4.html'
+      },
+      5: {
+        title: 'Learning Outcome 5',
+        icon: 'gmail-new.png',
+        content: `<p><strong>Personal leadership</strong></p><p>You are aware of your own strengths and weaknesses...</p>`,
+        fileUrl: 'LO5.html'
+      },
+      mywork: {
+        title: 'My Work',
+        icon: 'sm_5b321c99945a2.jpg',
+        content: `<p>smth.</p>`,
+        fileUrl: 'MyWork.html'
+      },
+      aboutme: {
+        title: 'About Me',
+        icon: 'woman-icon-vector-trendy-flat-260nw-743283871.webp',
+        content: `<p>me.</p>`,
+        fileUrl: 'AboutMe.html'
+      }
+    };
+
+    const opened = {};
+    const desktop = document.getElementById('desktop');
+    const taskbarApps = document.getElementById('taskbarApps');
+    const startMenu = document.getElementById('startMenu');
+
+    function openApp(appId) {
+      if (opened[appId]) {
+        opened[appId].style.zIndex = getMaxZIndex() + 1;
+        return;
+      }
+
+      const app = apps[appId];
+      const win = document.createElement('div');
+      win.className = 'app-window';
+      win.style.zIndex = getMaxZIndex() + 1;
+      win.innerHTML = `
+        <div class="title-bar">
+          <span>${app.title}</span>
+          <button class="close-btn">&times;</button>
+        </div>
+        <div class="content">
+          ${app.content}
+          <button class="full-file-btn">See full file</button>
+        </div>
+      `;
+      desktop.appendChild(win);
+      opened[appId] = win;
+
+      win.querySelector('.close-btn').addEventListener('click', () => {
+        win.remove();
+        delete opened[appId];
+        const icon = taskbarApps.querySelector(`[data-appid="${appId}"]`);
+        if (icon) icon.remove();
+      });
+
+      win.querySelector('.full-file-btn').addEventListener('click', () => {
+        if (app.fileUrl) {
+          window.open(app.fileUrl, '_blank');
+        } else {
+          alert('No file available.');
+        }
+      });
+
+      const taskIcon = document.createElement('img');
+      taskIcon.src = app.icon;
+      taskIcon.setAttribute('data-appid', appId);
+      taskIcon.addEventListener('click', () => {
+        win.style.zIndex = getMaxZIndex() + 1;
+      });
+      taskbarApps.appendChild(taskIcon);
+    }
+
+    function getMaxZIndex() {
+      return [...document.querySelectorAll('.app-window, .image-tab')].reduce((max, el) => {
+        const z = parseInt(getComputedStyle(el).zIndex) || 0;
+        return Math.max(max, z);
+      }, 1);
+    }
+
+    document.querySelectorAll('.sidebar-app').forEach(icon => {
+      icon.addEventListener('click', () => {
+        const id = icon.getAttribute('data-appid');
+        if (id) openApp(id);
+      });
+    });
+
+    function updateClock() {
+      const now = new Date();
+      document.getElementById('clock').textContent = now.toLocaleTimeString([], {
+        hour: '2-digit',
+        minute: '2-digit'
+      });
+    }
+
+    updateClock();
+    setInterval(updateClock, 1000);
+
+    const startButton = document.getElementById('startButton');
+    startButton.addEventListener('click', () => {
+      startMenu.style.display = startMenu.style.display === 'none' || startMenu.style.display === '' ? 'flex' : 'none';
+    });
+
+    for (const id in apps) {
+      const app = apps[id];
+      const icon = document.createElement('div');
+      icon.className = 'sidebar-app';
+      icon.setAttribute('data-appid', id);
+      icon.innerHTML = `<img src="${app.icon}" /><span>${app.title}</span>`;
+      icon.addEventListener('click', () => {
+        openApp(id);
+        startMenu.style.display = 'none';
+      });
+      startMenu.appendChild(icon);
+    }
+
+    recycleBin.addEventListener('click', () => {
+  const images = [
+    'bin1.jpg',
+    'bin2.jpg',
+    'bin3.jpg',
+    'bin4.jpg',
+    'bin5.jpg',
+    'bin6.jpg',
+    'bin7.jpg',
+    'bin8.jpg',
+    'bin9.jpg'
+  ]; 
+
+  const desktopRect = desktop.getBoundingClientRect();
+
+  images.forEach((src, index) => {
+    setTimeout(() => {
+      const tab = document.createElement('div');
+      tab.className = 'image-tab';
+
+      // Random positioning
+      const maxLeft = desktopRect.width - 320;
+      const maxTop = desktopRect.height - 220;
+      const left = Math.floor(Math.random() * maxLeft);
+      const top = Math.floor(Math.random() * maxTop);
+
+      tab.style.left = `${left}px`;
+      tab.style.top = `${top}px`;
+      tab.style.zIndex = getMaxZIndex() + 1;
+
+      tab.innerHTML = `
+        <div class="tab-header">
+          <span>message</span>
+          <button class="close-tab">&times;</button>
+        </div>
+        <img src="${src}" alt="Aesthetic">
+      `;
+
+      desktop.appendChild(tab);
+
+      tab.querySelector('.close-tab').addEventListener('click', () => {
+        tab.remove();
+      });
+
+      // Dragging logic
+      let isDragging = false, offsetX, offsetY;
+      const header = tab.querySelector('.tab-header');
+      header.addEventListener('mousedown', e => {
+        isDragging = true;
+        offsetX = e.clientX - tab.offsetLeft;
+        offsetY = e.clientY - tab.offsetTop;
+        tab.style.zIndex = getMaxZIndex() + 1;
+      });
+
+      document.addEventListener('mousemove', e => {
+        if (isDragging) {
+          tab.style.left = e.clientX - offsetX + 'px';
+          tab.style.top = e.clientY - offsetY + 'px';
+        }
+      });
+
+      document.addEventListener('mouseup', () => {
+        isDragging = false;
+      });
+
+    }, index * 250); 
+  });
+});
+
+  </script>
+</body>
+</html>

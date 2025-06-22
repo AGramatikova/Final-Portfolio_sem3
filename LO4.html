@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Google Translate - Learning Outcome 4</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background-color: #f8f9fa;
+      color: #202124;
+    }
+
+    .top-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px 20px;
+      border-bottom: 1px solid #ddd;
+      background-color: white;
+    }
+
+    .top-bar .logo {
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+    .top-bar .logo span {
+      font-size: 22px;
+      font-weight: bold;
+      font-family: 'Product Sans', Arial, sans-serif;
+    }
+
+    .top-bar .logo span:nth-child(1) { color: #4285f4; }
+    .top-bar .logo span:nth-child(2) { color: #ea4335; }
+    .top-bar .logo span:nth-child(3) { color: #fbbc05; }
+    .top-bar .logo span:nth-child(4) { color: #4285f4; }
+    .top-bar .logo span:nth-child(5) { color: #34a853; }
+    .top-bar .logo span:nth-child(6) { color: #ea4335; }
+
+    .close-btn {
+      width: 24px;
+      height: 24px;
+      background-color: red;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .top-icons {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 12px;
+      margin-top: 10px;
+      margin-right: 20px;
+    }
+
+    .menu-dots {
+      font-size: 22px;
+      color: #5f6368;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .profile-icon {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 1px solid #999;
+    }
+
+    .translate-app {
+      max-width: 1200px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+    .translation-boxes {
+      display: flex;
+      gap: 20px;
+    }
+
+    .box {
+      flex: 1;
+      background-color: white;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      padding: 25px;
+      min-height: 520px;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      transition: all 0.3s ease;
+    }
+
+    .box.expanded {
+      flex: 2.2;
+      min-height: 850px;
+    }
+
+    .language-select {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 15px;
+    }
+
+    .language-select span {
+      padding: 6px 12px;
+      border-radius: 20px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+
+    .language-select .active {
+      background-color: #d2e3fc;
+      color: #1967d2;
+    }
+
+    .left-box textarea {
+      width: 100%;
+      height: 350px;
+      border: none;
+      resize: none;
+      font-size: 16px;
+      outline: none;
+    }
+
+    .expand-icon {
+      position: absolute;
+      bottom: 10px;
+      right: 10px;
+      font-size: 20px;
+      cursor: pointer;
+      color: #999;
+    }
+
+    .expand-icon:hover {
+      color: #333;
+    }
+
+    .right-box .translation-text {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #5f6368;
+      font-size: 18px;
+      font-style: italic;
+    }
+
+    .bottom-circles {
+      margin-top: 60px;
+      display: flex;
+      justify-content: center;
+      gap: 80px;
+    }
+
+    .circle-button {
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      background-color: white;
+      border: 1px solid #ccc;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      font-size: 13px;
+      color: #555;
+    }
+  </style>
+</head>
+<body>
+  <div class="top-bar">
+    <div class="logo">
+      <span>G</span><span>o</span><span>o</span><span>g</span><span>l</span><span>e</span> Translate - Learning Outcome 4
+    </div>
+    <button class="close-btn" onclick="window.location.href='index.html'">X</button>
+  </div>
+
+  <div class="top-icons">
+    <div class="menu-dots">&#8942;</div>
+    <img src="https://cdn-icons-png.flaticon.com/512/847/847969.png" alt="Profile Icon" class="profile-icon" />
+  </div>
+
+  <div class="translate-app">
+    <div class="translation-boxes">
+      <div class="box left-box" id="leftBox">
+        <div class="language-select">
+          <span>Detect language</span>
+          <span class="active">English</span>
+          <span>Spanish</span>
+          <span>Bulgarian</span>
+        </div>
+        <textarea readonly>
+• Group Presentation:
+I created a presentation to showcast the final products me and my group made in the past weeks.
+
+• Brand Guide Contribution:
+Worked collaboratively with the team to create a structured guide. Anyone that needed help I was happy to do so.
+
+• Double diamond project Krom document
+Me and Adeline were responsible for applying the Double Diamond method to guide our design process. We began by researching the method and combining it with CMD tools to explore the challenge.
+
+In the Discover phase, we interviewed Studio Krom and conducted research to understand the target audience and their needs. In the Define phase, we created personas and research to better understand different types of dyslexia and how they could be represented in a digital format. During the Develop phase, we explored potential solutions and gathered user feedback to refine our ideas. 
+        </textarea>
+        <div class="expand-icon" onclick="toggleExpand()">⤢</div>
+      </div>
+      <div class="box right-box">
+        <div class="language-select">
+          <span class="active">Dutch</span>
+          <span>Spanish</span>
+          <span>Arabic</span>
+        </div>
+        <div class="translation-text">Translation</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="bottom-circles">
+    <div class="circle-button">
+      <div>&#x21BA;</div>
+      <div>History</div>
+    </div>
+    <div class="circle-button">
+      <div>&#9734;</div>
+      <div>Saved</div>
+    </div>
+  </div>
+
+  <script>
+    function toggleExpand() {
+      document.getElementById('leftBox').classList.toggle('expanded');
+    }
+  </script>
+</body>
+</html>

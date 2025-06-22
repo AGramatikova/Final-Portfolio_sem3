@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gmail - Learning Outcome 5</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background-color: #f8f9fa;
+    }
+
+    .top-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 20px;
+      border-bottom: 1px solid #ddd;
+      background-color: white;
+    }
+
+    .top-bar .logo {
+      font-size: 20px;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      gap: 3px;
+      letter-spacing: 0.2px;
+    }
+
+    .top-bar .logo span:nth-child(1) { color: #d93025; }
+    .top-bar .logo span:nth-child(2) { color: #1a73e8; }
+    .top-bar .logo span:nth-child(3) { color: #fbbc04; }
+    .top-bar .logo span:nth-child(4) { color: #34a853; }
+    .top-bar .logo span:nth-child(5) { color: #d93025; }
+
+    .close-btn {
+      background-color: red;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      font-weight: bold;
+      width: 24px;
+      height: 24px;
+      cursor: pointer;
+    }
+
+    .main-content {
+      display: flex;
+    }
+
+    .sidebar {
+      width: 240px;
+      background-color: #fff;
+      padding: 20px 10px;
+      box-shadow: 2px 0 5px rgba(0,0,0,0.05);
+      height: calc(100vh - 60px);
+      font-size: 16px;
+    }
+
+    .compose-btn {
+      background-color: #c2e7ff;
+      color: black;
+      border: none;
+      padding: 12px 16px;
+      border-radius: 24px;
+      font-weight: bold;
+      cursor: pointer;
+      margin-bottom: 20px;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .compose-btn::before {
+      content: '\270E';
+      font-size: 20px;
+    }
+
+    .nav-item {
+      padding: 12px 20px;
+      margin: 6px 0;
+      border-radius: 20px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    .nav-item.active {
+      background-color: #b8d7fb;
+      font-weight: bold;
+    }
+
+    .main {
+      flex: 1;
+      padding: 20px 40px;
+    }
+
+    .search-bar-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 30px;
+    }
+
+    .search-bar {
+      width: 60%;
+      padding: 10px;
+      border-radius: 24px;
+      border: 1px solid #ccc;
+      padding-left: 40px;
+      background: white url('https://img.icons8.com/ios-filled/20/search.png') no-repeat 10px center;
+      background-size: 20px;
+    }
+
+    .icons-bar {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .menu-dots {
+      font-size: 22px;
+      color: #5f6368;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .profile-icon {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 1px solid #999;
+    }
+
+    .email-list {
+      background-color: white;
+      border-radius: 8px;
+      box-shadow: 0 0 5px rgba(0,0,0,0.05);
+    }
+
+    .email-item {
+      padding: 24px 24px;
+      border-bottom: 1px solid #eee;
+      cursor: pointer;
+    }
+
+    .email-item:hover {
+      background-color: #f1f3f4;
+    }
+
+    .email-title {
+      font-weight: bold;
+      font-size: 17px;
+    }
+
+    .email-content {
+      font-size: 15px;
+      margin-top: 8px;
+      display: none;
+      color: #444;
+    }
+
+    .email-item.open .email-content {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <div class="top-bar">
+    <div class="logo">
+      <span>G</span><span>m</span><span>a</span><span>i</span><span>l</span> - Learning Outcome 5
+    </div>
+    <button class="close-btn" onclick="window.location.href='index.html'">X</button>
+  </div>
+
+  <div class="main-content">
+    <div class="sidebar">
+      <button class="compose-btn">Compose</button>
+      <div class="nav-item active">Inbox</div>
+      <div class="nav-item">Starred</div>
+      <div class="nav-item">Snoozed</div>
+      <div class="nav-item">Sent</div>
+      <div class="nav-item">Trash</div>
+    </div>
+
+    <div class="main">
+      <div class="search-bar-container">
+        <input class="search-bar" type="text" placeholder="Search mail" />
+        <div class="icons-bar">
+          <div class="menu-dots">⋮</div>
+          <img src="https://cdn-icons-png.flaticon.com/512/847/847969.png" alt="Profile" class="profile-icon">
+        </div>
+      </div>
+
+      <div class="email-list">
+        <div class="email-item" onclick="this.classList.toggle('open')">
+          <div class="email-title">Client Meeting Summary</div>
+          <div class="email-content">We had a productive meeting with the client where we aligned goals and deliverables for the upcoming sprint.</div>
+        </div>
+        <div class="email-item" onclick="this.classList.toggle('open')">
+          <div class="email-title">Final Design Review</div>
+          <div class="email-content">Please review the latest design iteration uploaded to Figma. Changes include feedback from last week's presentation.</div>
+        </div>
+        <div class="email-item" onclick="this.classList.toggle('open')">
+          <div class="email-title">Group Feedback</div>
+          <div class="email-content">Overall, the team performed well. Everyone completed their tasks and contributed during the critique session.</div>
+        </div>
+        <div class="email-item" onclick="this.classList.toggle('open')">
+          <div class="email-title">Portfolio Update</div>
+          <div class="email-content">Remember to push your latest changes to the GitHub repository and update your personal portfolio page accordingly.</div>
+        </div>
+        <div class="email-item" onclick="this.classList.toggle('open')">
+          <div class="email-title">Presentation Reminder</div>
+          <div class="email-content">The final presentation is scheduled for next Monday at 10 AM. Be prepared to demonstrate your contributions.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

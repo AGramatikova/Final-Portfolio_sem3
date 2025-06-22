@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Learning Outcome 1 - XP Style</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      font-family: Tahoma, sans-serif;
+      background-color: #c0c0c0;
+    }
+
+    .window {
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      border: 2px solid #000080;
+      background-color: white;
+    }
+
+
+    .title-bar {
+      background-color: #000080;
+      color: white;
+      padding: 5px 10px;
+      font-weight: bold;
+      font-size: 14px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .close-button {
+      background-color: red;
+      color: white;
+      border: 2px solid #fff;
+      font-weight: bold;
+      font-size: 14px;
+      width: 22px;
+      height: 22px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+    }
+
+    .menu-bar {
+      background-color: #e0e0e0;
+      padding: 4px 10px;
+      font-size: 13px;
+    }
+
+    .menu-bar span {
+      margin-right: 15px;
+      cursor: default;
+    }
+
+    .window-body {
+      flex: 1;
+      display: flex;
+      overflow: hidden;
+      min-height: 0; /* important */
+    }
+
+    .toolbar {
+      width: 61px;
+      background-color: #d4d0c8;
+      padding: 20px 5px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      align-items: center;
+      flex-shrink: 0;
+    }
+
+    .toolbar img {
+      width: 30px;
+      height: 30px;
+    }
+
+    .canvas-wrapper {
+      flex: 1;
+      overflow-y: auto;
+      padding: 20px;
+      padding-bottom: 60px; /* 👈 Add this */
+      position: relative;
+      background-color: white;
+    }
+
+
+    .canvas-area {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .canvas-area h1 {
+      font-size: 30px;
+      text-align: center;
+      margin-bottom: 45px;
+      color: #000080;
+    }
+    .canvas-area h2 {
+      font-size: 20px;
+      text-align: left;
+      margin-top: 50px;
+      margin-bottom: 18px;
+      color: #000080;
+    }
+
+    .canvas-area p {
+    text-align: left;
+    margin-bottom: 50px; 
+    }
+
+    .color-bar {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 41px;
+      background-color: #e0e0e0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 4px;
+      gap: 5px;
+      z-index: 10;
+    }
+
+
+
+    .color {
+      width: 25px;
+      height: 25px;
+      border: 1px solid #000;
+    }
+
+    hr.section-divider {
+      border: none;
+      border-top: 1px solid #000080;
+      margin: 60px 0 40px 0;
+    }
+    
+  </style>
+</head>
+<body>
+  <div class="window">
+    <div class="title-bar">
+      <div style="display: flex; align-items: center; gap: 8px;">
+        <img src="MSPaint.webp" alt="Paint Icon" style="width: 16px; height: 16px;" />
+        <span>untitled - Paint</span>
+      </div>
+      <div class="close-button" onclick="window.location.href='index.html'">X</div>
+    </div>
+    <div class="menu-bar">
+      <span>File</span>
+      <span>Edit</span>
+      <span>View</span>
+      <span>Image</span>
+      <span>Colors</span>
+      <span>Help</span>
+    </div>
+    <div class="window-body" style="flex: 1; overflow: auto;">
+      <div class="toolbar">
+        <img src="https://img.icons8.com/windows/32/000000/select.png" />
+        <img src="https://img.icons8.com/windows/32/000000/pencil-tip.png" />
+        <img src="https://img.icons8.com/windows/32/000000/paint-bucket.png" />
+        <img src="https://img.icons8.com/windows/32/000000/zoom-in.png" />
+        <img src="https://img.icons8.com/windows/32/000000/line.png" />
+        <img src="https://img.icons8.com/windows/32/000000/rectangle.png" />
+        <img src="https://img.icons8.com/windows/32/000000/oval.png" />
+      </div>
+      <div class="canvas-wrapper">
+        <div class="canvas-area">
+          <h1>Learning Outcome 1</h1>
+          
+          <div style="text-align: center; margin-bottom: 50px; max-width: 700px; margin-left: auto; margin-right: auto;">
+            <strong>Conceptualize, Design, and Develop Interactive Media Products</strong><br>
+            You create engaging concepts and translate them into interactive validated media products by applying user-centered design principles, visual design techniques and by exploring emerging trends and developments in media, design and technologies.
+          </div>
+          
+          <hr class="section-divider" />
+
+            <h2>🎨 Moodboards</h2>
+            To begin our concept development, I created two moodboards on Figma that reflect the creative direction and personality of our group. I searched for inspiration on Pinterest using keywords that captured our intended tone - creative, bold, elegant and some images that visually spoke to me.<br>
+            • The first moodboard is minimal and straightforward, making the concept easy to grasp.<br>
+            • The second includes more images, offering a deeper dive into the brand’s aesthetic.<br><br>
+            <strong>Feedback:</strong> My group gave me positive feedback, they did enjoy the way it was clean yet colorful and artsy. We had to chose just a few of the moodboards in order to make a final one, representing our brand. Mine was one of them, so later on we combined a few pictures from mine to the finalized one.<br>
+            <strong>Reflection:</strong> Making the moodboards was honestly one of my favorite parts of the project. It let me express how I pictured our brand in my head—creative, artsy, and a bit bold. I just followed what felt right visually and it ended up connecting with the group. They liked how clean and colorful it was, which gave me more confidence in my creative choices.
+            Looking back though, I probably spent too much time on Pinterest and ended up overthinking which images to include. I could’ve been faster or narrowed it down earlier. Still, the fact that some of my images were used in the final version made me feel like my input had value, and I also saw how helpful it is to combine different perspectives to build something better as a team.<br>
+            📎 <a href="https://www.figma.com/design/D0AByBnS26DElhhpjlQ0ip/Studio-Platalea?node-id=102-2" target="_blank">Moodboards on Figma</a>
+            </p>
+          
+            <hr class="section-divider" />
+
+            <h2>🧩 Stylescape</h2>
+              To have a clear visual direction of our product, I contributed on building the stylescape using the colors and mood we had already agreed on. I added some faded shapes and soft elements to bring more personality into the layout. It wasn’t just about making it look nice—this stylescape became the base for everything we designed later, like the poster and website. It really helped us stay consistent and made sure everything felt like it belonged to the same brand.<br>
+            📎 <a href="https://www.figma.com/design/D0AByBnS26DElhhpjlQ0ip/Studio-Platalea?node-id=102-2" target="_blank">Stylescape Link</a>
+            </p>
+          
+            <hr class="section-divider" />
+
+            <h2>🪶 Logo Design</h2>
+              I went ahead and picked out a few images of the Platalea bird, outlined them while having in mind to either just have the outline as our logo or make it apart of the name. I didn’t really like the outcomes and neither did the group like their own work so we decided to have the words ‘studio Platalea’. Adaline had a drawing of the bird in which I suddenly imagined the Pixar lamp intro so I thought to put the bird on the ‘L’ of the name, looking like the legs of the animal. Everyone loved it, so we left it like so.<br>
+            📎 <a href="https://www.figma.com/design/D0AByBnS26DElhhpjlQ0ip/Studio-Platalea?node-id=0-1" target="_blank">Logo in Figma</a>
+            </p>
+
+            <hr class="section-divider" />
+          
+            <h2>🌀 Shapes in Web Prototype</h2>
+              During Andy’s website prototyping, I noticed something was visually missing. I suggested incorporating the playful shapes I had already created in the stylescape. They made the prototype feel more alive and keeping consistency  with our visual identity. It added both depth and energy to the interface.<br>
+            📎 <a href="https://www.figma.com/design/D0AByBnS26DElhhpjlQ0ip/Studio-Platalea?node-id=247-102" target="_blank">Shape examples</a>
+            </p>
+          
+            <hr class="section-divider" />
+
+            <h2>📣 Poster Design</h2>
+              As part of our project, my team and I were tasked with creating a poster to represent our concept. We each started by gathering inspiration and designing individual drafts, with the goal of sharing feedback and combining the strongest ideas into a final version.
+              For my part, I looked through Pinterest for visually striking posters—something bold and attention-grabbing. I brought my favorite elements into Figma and played around with layouts to see what felt the most impactful. When I shared my first draft with the group, they liked the visuals, but felt the layout was too busy and a bit overwhelming. During our feedback session with our teacher Josh, he also reminded us that the goal wasn’t to make an advertisement, but an informative poster that clearly communicates our concept.
+              So I started over with a simpler, cleaner approach. I used a white background, kept the design light and clear, and made sure to highlight the most important elements: our brand name, the company we’re working with (Krom), and the focus of the project—dyslexia. I used Krom’s signature orange color to make key parts stand out, both to match their brand and grab attention.
+              The revised version was much better received by the group. We all agreed to move forward with it as our final poster. To tie everything together visually, we also added a small illustration of a laptop displaying a questionnaire-style game, which helped communicate our goal of raising awareness about dyslexia in an interactive and engaging way.<br>              
+              <strong>Reflection:</strong> Working on the poster taught me how important clarity and purpose are in visual design. At first, I was mostly focused on making it look cool and creative, but I realized that if the message isn’t clear, the design doesn’t do its job. It was a bit frustrating to start over after the feedback, but in the end, I’m glad I did. The second version was way more effective, and it actually felt more professional. I also learned how to better balance creativity with function—and that sometimes, simpler really is better.<br>
+            📎 <a href="https://www.figma.com/design/mU9J04F4DDApTGvS5n7lBA/Dyslexia-Things?node-id=0-1" target="_blank">Poster on Figma</a>
+            </p>
+          
+            <hr class="section-divider" />
+
+            <h2>👤 User Personas</h2>
+              To better understand our target audience and design a solution that truly meets their needs, i created user personas. i started by identifying the main types of users who would benefit from our project. This involved discussing potential users' backgrounds, goals, challenges, and behaviors related to our topic—dyslexia. I gathered insights from initial research, including online articles, user interviews. From this, i began sketching out profiles that represented real user groups. Each persona included details like age, occupation, goals, frustrations. The goal was to create realistic characters that could help guide our design decisions. For example, i created as one of our key personas a child with dyslexia, highlighting the difficulties they face in a learning environment and what kind of support they would find helpful. And another persona of a teacher, because I think teachers would be one of our most common users, trying to understand their students with dyslexia. Throughout the design process, these personas helped us stay user-centered. They reminded us to think from the user’s perspective and prioritize clarity, accessibility, and engagement in our project.<br>
+              <strong>Feedback:</strong> : I got some feedback from Pennie on my personas, and at first she didn’t fully agree with them. She mentioned that a dyslexic person shouldn’t be included as a persona because they aren't technically our “target audience.” But after I explained that they’re actually a key part of who we want to reach, both to test the experience and to give us direct feedback, she understood my point. Since our whole project revolves around their experience, I felt it was important to include them at the center of our process.<br>
+            📎 <a href="https://www.canva.com/design/DAGipg2x_sI/4kgWFu6uLC_wPli45p0U_Q/edit" target="_blank">Personas on Canva</a>
+            </p>
+          
+            <hr class="section-divider" />
+
+            <h2>🖥 Portfolio Design Planning</h2>
+              Although I haven’t finalized my personal portfolio, I’ve started ideating and sketching. My vision is a colorful, artsy layout with strong creative expression, aligning with my personal style and our Studio Platalea branding.<br>
+              📎 <a href="https://www.figma.com/design/eyT866pli9pdFFAzqYZ2fu/Untitled" target="_blank">Portfolio concept</a>
+            </p>
+          
+            <hr class="section-divider" />
+
+            <h2>🧪 Website & Gameplay Design</h2>
+            Once we officially started designing our website, my group and I began brainstorming what it should include. We grabbed a whiteboard (like in the photo) and started sketching and discussing.
+            We first defined our main goals for the project:
+            •	Raise awareness about dyslexia<br>
+            •	Simulate how it feels to live with the condition<br>
+            •	Include a game that shows the challenges dyslexic people face<br>
+            •	Present multiple types of dyslexia, not just one<br><br>
+            After deciding on six main pages for the site, we worked on improving each one and checking if it made sense, if it was fun, or if it was too boring. 
+            For the gameplay page, I suggested adding levels: starting with easier, shorter texts and increasing difficulty to show different dyslexia types. I also had the idea of timing users while they read a normal paragraph, then comparing it with a dyslexia-effect version, to show how reading speed changes. This would help raise awareness, especially about how dyslexic kids are often bullied for reading slowly. Unfortunately, my teammates felt this made it too much like a game, so those ideas didn’t make it in.
+            We spent some time discussing the layout for the detailed info page, whether to go horizontal or vertical, and where the dyslexia effect toggle should be.
+            For the victory page, I suggested a point system and a timer to make it feel more rewarding.
+            Once we finalized the page structure, we divided the prototyping tasks. I chose the game setup and victory pages. I thought we should continue on using the same color theme as our poster to keep everything consistent.
+            At first, for the game setup, I had a big info paragraph on one side and three questions on the other, but it felt cramped and uninviting. So, I changed it: each paragraph became its own question, keeping the focus on educating users about dyslexia while making it interactive. I also tried using different answer types like multiple choice, fill-in-the-blank, etc. but the group wanted to keep things simple, so we stuck with one-answer options only.
+            After our feedback session with Chris, I wanted to make the game side more fun to keep users engaged. I explored simple game designs, thought of Chris’s idea for FlexBox Froggy, checked out other websites and came up with a spaceship path idea, where each dot represented a difficulty level. But again, the team felt this was “too gamified.”
+            For the victory page, I kept it light: I first thought of adding fireworks or confetti. Then Adeline made a design with scattered letters, which inspired me to swap the confetti with falling letters to stay on theme. This is still a goal for the future because we felt like it would be too much letters. 
+            After mostly finalizing my pages, I decided to do some user testing. I created a few layout options for the gameplay page, thinking about what users might prefer. I tried having each paragraph linked to its own question, either arranged horizontally or vertically, showing them individually on the screen. I also tested a completely different version with funny, super simple text so users wouldn't get bored or feel like they were doing schoolwork. I asked Pennie to user test it as well, she didnt like how the original layout looked(the full text and all questions being next to each other) - "its too busy and overwhelming. i feel like im getting a headache, and is tricking my eyes"
+            After testing, it came down to two options: vertical text with each section and question together, or showing them one at a time on separate screens. In my opinion, having everything individually on the screen left too much empty space. If we filled the space with design, it became too crowded and hard to focus. But if we left it as-is, it felt too simple, boring, and kind of unprofessional. So i stuck with the first option instead. This process helped me understand real UX preferences and the importance of balance between playfulness and professionalism.<br><br>
+            <strong>Reflection:</strong> This whole planning phase taught me how important it is to combine creativity with what works. I came in with a bunch of ideas that I was really excited about, like using levels or comparing reading speed with and without dyslexia effects. I still think those concepts had a lot of potential to make the experience more meaningful, but I learned that not every idea fits the group's vision. It was a bit frustrating at times, but it helped me understand how to compromise and prioritize the bigger picture.
+            Seeing our ideas come to life on the whiteboard felt like real progress. It was cool to physically map things out, make changes on the spot, and hear everyone's input. I also learned a lot from the user testing I did later—sometimes what makes sense in your head doesn’t always feel right to others. I kept adjusting layouts and content to find the best balance between education, interaction, and simplicity. In the end, even though not all of my ideas made it in, I’m proud of how much I contributed and how much the process taught me about team communication, flexibility, and design thinking.            
+            </p>
+          
+            <hr class="section-divider" />
+
+            <h2>🧠 User Testing & Layout Iteration</h2>
+            I tested different gameplay layouts, such as: horizontal, vertical, or one section per screen. I realized some options left too much empty space or felt too busy. We went with the cleanest and most balanced one. It helped me understand how layout affects engagement and clarity.
+            </p>
+          
+            <hr class="section-divider" />
+
+            <h2>🔍 Additional Value</h2>
+            ✅ <strong>Accessibility Consideration:</strong> I tried to reduce clutter, make text readable, and keep things simple for users with dyslexia.<br><br>
+            ✅ <strong>Emerging Trend Awareness:</strong> I explored gamification and interactive storytelling to improve engagement.<br><br>
+            ✅ <strong>Responsive Design Planning:</strong> I proposed layout changes to adapt for mobile even though the prototype was desktop-first. The website is resposive so it does work on mobile but i would like making some changes is the design.<br><br>
+            ✅ <strong>Iterative Feedback Process:</strong> I improved all my designs based on mainly peer feedback, especially the poster, gameplay, and stylescape elements. I do wish i asked my teachers for feedback, but i still amde sure to ask for advice for every product i made.<br><br>
+          </div>          
+        </div>
+      </div>
+    </div>
+    <div class="color-bar">
+      <div class="color" style="background:black;"></div>
+      <div class="color" style="background:white;"></div>
+      <div class="color" style="background:red;"></div>
+      <div class="color" style="background:green;"></div>
+      <div class="color" style="background:blue;"></div>
+      <div class="color" style="background:yellow;"></div>
+      <div class="color" style="background:magenta;"></div>
+      <div class="color" style="background:cyan;"></div>
+    </div>
+  </div>
+</body>
+</html>
