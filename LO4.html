@@ -197,6 +197,17 @@
       margin-top: 10px;
       margin-bottom: 10px;
     }
+    .clickable-image {
+      max-width: 300px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      cursor: pointer;
+      transition: transform 0.2s ease;
+    }
+
+    .clickable-image:hover {
+      transform: scale(1.03);
+    }
   </style>
 </head>
 <body>
@@ -229,8 +240,10 @@
     
           <h2>📽️ Group Presentation</h2>
           <p>
-            I created a presentation to showcase all the visual and branding work our group developed throughout the project. The goal was to clearly present our stylescapes, moodboards, logo, website design, and brand guide in a way that felt connected and professional.<br>
-            I used Canva to build the presentation and made sure the layout followed our brand identity—using the same fonts, colors, and tone we had defined. Each slide walked the viewer through a different part of our process, explaining not just the final product, but also how we got there.<br>
+            I created a presentation to showcase all the visual and branding work our group developed throughout the project.<br>
+            The goal was to clearly present our stylescapes, moodboards, logo, website design, and brand guide in a way that felt connected and professional.<br><br>
+            I used Canva to build the presentation and made sure the layout followed our brand identity—using the same fonts, colors, and tone we had defined.<br>
+            Each slide walked the viewer through a different part of our process, explaining not just the final product, but also how we got there.<br><br>
             We used this presentation to explain our design decisions, like why we chose certain colors or shapes, how the stylescape influenced the website layout, and how our tone of voice was reflected across the project. It helped tie all the pieces together and gave a clear overview of what we built as a team.<br><br>
             📎 <a href="https://www.canva.com/design/DAGfpOQhMVY/eRFPh6u1Zjp-zJouT0SrYw/edit?utm_content=DAGfpOQhMVY&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton" target="_blank">Canva Presentation</a>
           </p>
@@ -259,8 +272,10 @@
               I helped Adeline with the icons and shapes section too. She designed the visuals, and I supported her by figuring out the rules for placement and spacing. We wanted to make sure the use of shapes didn’t feel random, so I helped define a simple structure—like how far apart shapes should be spaced, how they should align, and how to keep everything consistent across screens. That structure helped turn a cool design into something usable and repeatable.<br><br>
             </p>
 
-          <h3>Reflection:</h3><p>Working on the Brand Guide made me realize how much thought goes into the small stuff. I used to think brand design was mostly about picking colors and fonts, but I’ve learned it’s way more layered than that. Every little thing—like how shapes are placed or how friendly the writing sounds—can shape how someone sees the whole project. I also saw how important it is to keep things clear and well-documented. Honestly, at first I wasn’t super confident writing the tone of voice section—I kept wondering if it made sense to others or if I was overcomplicating it. But after sharing it with the group and seeing them actually use it, I felt more confident in what I wrote. Helping define the shape layout rules with Adeline also reminded me that structure can be creative too. Next time, I’d take more time to double-check how each decision fits into the bigger picture, instead of assuming it just “works.” This process helped me see how structured design thinking and feedback really improve the final result.</p>
-        
+          <h3>Reflection:</h3>
+          <p>Working on the Brand Guide made me realize how much thought goes into the small stuff. I used to think brand design was mostly about picking colors and fonts, but I’ve learned it’s way more layered than that. Every little thing—like how shapes are placed or how friendly the writing sounds—can shape how someone sees the whole project. I also saw how important it is to keep things clear and well-documented. Honestly, at first I wasn’t super confident writing the tone of voice section—I kept wondering if it made sense to others or if I was overcomplicating it. But after sharing it with the group and seeing them actually use it, I felt more confident in what I wrote. Helping define the shape layout rules with Adeline also reminded me that structure can be creative too. Next time, I’d take more time to double-check how each decision fits into the bigger picture, instead of assuming it just “works.” This process helped me see how structured design thinking and feedback really improve the final result.</p><br>
+          📎 <a href="https://www.figma.com/design/D0AByBnS26DElhhpjlQ0ip/Studio-Platalea?node-id=247-102&p=f" target="_blank">Brand Guide on Figma</a>
+
           <hr class="section-divider" />
 
           <h2>💡 Double Diamond – Krom Project</h2>
@@ -294,6 +309,8 @@
               It also taught me to balance empathy and creativity. Some ideas felt exciting visually, but didn’t really communicate the experience in the right way or worse, came across as too abstract or confusing. I had to learn when to let go of those and stay grounded in the purpose of the project.<br>
               Looking back, I’m proud that we didn’t just build a project that looked good, we created something based on real insights, made with real people in mind.<br><br>
             </p>
+            📎 <a href="https://docs.google.com/document/d/1xI0cyeVfONF5r2oNGo3lpKNF8vHjONwQDDUJ8CmrNzQ/edit?usp=sharing" target="_blank">Double diamond link</a>
+
 
             <hr class="section-divider" />
 
@@ -301,7 +318,15 @@
           <p>
             To keep our project realistic and focused, we used the MoSCoW method to figure out which features were the most important—and which ones we could skip. It helped us avoid overcomplicating things and made sure we spent time on what actually mattered for the user experience.<br><br>
           </p>
-
+          <div style="text-align: center; margin-top: 30px;">
+            <img src="moscow.png" alt="MoSCoW table" class="clickable-image" />
+          </div>
+    
+          <!-- Lightbox overlay -->
+          <div id="lightbox" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background: rgba(0,0,0,0.8); justify-content:center; align-items:center; z-index:9999;">
+            <span id="close-lightbox" style="position:absolute; top:20px; right:30px; color:white; font-size:30px; cursor:pointer;">&times;</span>
+            <img id="lightbox-image" src="" style="max-width:90%; max-height:90%; border-radius: 10px;" />
+          </div>
             <h3>Must Have</h3>
             <p>
               The main goal was to let people experience what reading with dyslexia can feel like. So we knew from the start that we had to include:<br><br>
@@ -333,15 +358,25 @@
 
           <h2>🎪 Project Showcase</h2>
           <p>
-            We had an event to showcase the progress of our project so far. For our table setup, we prepared a poster, our Figma prototype, and a working visual demo of the gameplay mechanics. It was really nice to present it all together and see how people responded.<br><br>
-            We received a lot of positive feedback, especially about the color palette and how we managed to include both the gameplay experience and a small informative section. The part people seemed to like the most was the slider on the info page, which lets users adjust the strength of the shaders. It gave them a better idea of how different levels of distortion can impact people with dyslexia.<br><br>
-            I also used the event as a chance to test the gameplay layout again. A few classmates stopped by and gave me helpful feedback. They both preferred the horizontal layout, saying it was clearer and easier to follow. I then asked Pennie to try it as well—she said the vertical layout was a bit too much and actually gave her a headache, while the horizontal one felt more natural.<br>
+            We had an event to showcase the progress of our project so far.<br>
+            For our table setup, we prepared a poster, our Figma prototype, and a working visual demo of the gameplay mechanics.<br>
+            It was really nice to present it all together and see how people responded.<br><br>
+            We received a lot of positive feedback, especially about the color palette and how we managed to include both the gameplay experience and a small informative section.<br>
+            The part people seemed to like the most was the slider on the info page, which lets users adjust the strength of the shaders. It gave them a better idea of how different levels of distortion can impact people with dyslexia.<br><br>
+            I also used the event as a chance to test the gameplay layout again.<br>
+            A few classmates stopped by and gave me helpful feedback.<br>
+            They both preferred the horizontal layout, saying it was clearer and easier to follow.<br><br>
+            I then asked Pennie to try it as well. She said the vertical layout was a bit too much and actually gave her a headache, while the horizontal one felt more natural.<br><br>
             Dirk was the only one who chose the individual screen layout, where only one paragraph and its question/answers are shown at a time. He explained that it might help users stay more focused and move through the game faster.<br><br>
-            After gathering all this feedback, I shared it with the team and we agreed to stick with the horizontal layout. It was what most people preferred—and honestly, it felt better to us too.<br><br>
-            After showing our work, I also took some time to visit other groups and test their projects. I really enjoyed seeing what everyone came up with and hearing the ideas behind them. My favorites were the “Friends With Benefits” game and “BOND.”<br>
+            After gathering all this feedback, I shared it with the team and we agreed to stick with the horizontal layout. It was what most people preferred, and honestly, it felt better to us too.<br><br>
+            After showing our work, I also took some time to visit other groups and test their projects. I really enjoyed seeing what everyone came up with and hearing the ideas behind them.<br>
+            My favorites were the “Friends With Benefits” game and “BOND.”<br>
             The FWB game made me laugh—it was super awkward in a funny way. I suggested they tweak the answer system so that both people answer at the same time and then see the result together, instead of one person going first.<br>
             “BOND” was also super fun. I loved the mystery vibe and their paper prototypes were really well thought out. I usually enjoy mystery games, so it’s no surprise I liked it. My only feedback for them was to maybe add more characters to stretch out the game and make it even more immersive.<br><br>
           </p>
+          <div style="text-align: center; margin-top: 30px;">
+            <img src="event.jpg" alt="prototype event " class="clickable-image" />
+          </div>
 
           <hr class="section-divider" />
 
@@ -354,6 +389,7 @@
             Throughout the project, I also tried to keep in mind sensitive topics. Dyslexia is a real challenge for a lot of people, and we didn’t want to turn it into just a visual effect or a “cool idea.” We tried to make something meaningful that created awareness in a respectful way. I also thought about how different people might see things differently, whether because of culture, experience, or background.<br><br>
             Doing all this taught me that research isn’t just about Googling stuff. It’s about listening, testing, and being open to change.<br><br>
           </p>
+          <a href="Research on Dyslexia.pdf" download>📄 Research on Dyslexia</a>
 
 
         <div class="expand-icon" onclick="toggleExpand()">⤢</div>
@@ -384,6 +420,16 @@
     function toggleExpand() {
       document.getElementById('leftBox').classList.toggle('expanded');
     }
+    document.querySelectorAll('.clickable-image').forEach(img => {
+        img.addEventListener('click', function () {
+          document.getElementById('lightbox-image').src = this.src;
+          document.getElementById('lightbox').style.display = 'flex';
+        });
+      });
+      
+      document.getElementById('close-lightbox').addEventListener('click', function () {
+        document.getElementById('lightbox').style.display = 'none';
+      });
   </script>
 </body>
 </html>
