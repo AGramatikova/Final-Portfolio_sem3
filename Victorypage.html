@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Victory Page</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: "Georgia", serif;
+      background-color: #fdf7ef;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    .container {
+      text-align: center;
+      position: relative;
+      padding-top: 20px; 
+      padding-bottom: 40px; 
+    }
+
+    .title {
+      font-size: 7rem;
+      font-weight: bold;
+      color: #ff4a00;
+      margin: 20px 0 80px;
+      text-shadow: 2px 2px 0 white, 4px 4px 0 #ff4a00;
+      letter-spacing: 11px;
+    }
+
+
+    .message {
+      font-style: italic;
+      font-size: 1.3rem;
+      margin: 40px 0 30px;
+      color: #222;
+    }
+
+    .time {
+      font-size: 1.2rem;
+      color: #222;
+      margin: 5px 0 40px;
+    }
+
+    .button-group {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 19px;
+      margin-top: 80px;
+    }
+
+    .btn {
+      font-size: 1.2rem;
+      padding: 12px 24px;
+      border-radius: 10px;
+      border: none;
+      cursor: pointer;
+      min-width: 180px;
+      transition: 0.3s ease;
+    }
+
+    .btn.new-game {
+      background-color: #ff4a00;
+      color: white;
+    }
+
+    .btn.new-game:hover {
+      background-color: #e54300;
+    }
+
+    .btn.return-home {
+      background-color: #f0e8e0;
+      color: #333;
+    }
+
+    .btn.return-home:hover {
+      background-color: #ddd0c5;
+    }
+
+    /* Confetti */
+    .confetti {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      pointer-events: none;
+      overflow: hidden;
+      z-index: 999; 
+    }
+
+    .confetti-piece {
+      position: absolute;
+      width: 12px;
+      height: 10px;
+      background-color: red;
+      opacity: 0.8;
+      animation: fall linear infinite;
+    }
+
+    @keyframes fall {
+      to {
+        transform: translateY(100vh) rotate(360deg);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="confetti" id="confetti"></div>
+    <h1 class="title">IMPRESSIVE!</h1>
+    <p class="message">You did better than most players</p>
+    <p class="time">Time: 1:54<small>min</small></p>
+
+    <div class="button-group">
+      <a href="newgame.html" class="btn new-game">new game</a>
+      <a href="home.html" class="btn return-home">return home</a>
+    </div>
+  </div>
+
+  <script>
+    //confetti
+    const confettiContainer = document.getElementById("confetti");
+    const colors = ["#f9c74f", "#f9844a", "#f94144", "#f72585", "#7209b7", "#3a0ca3", "#90be6d"];
+
+    for (let i = 0; i < 100; i++) {
+      const confetti = document.createElement("div");
+      confetti.classList.add("confetti-piece");
+      confetti.style.left = `${Math.random() * 100}%`;
+      confetti.style.top = `${Math.random() * -100}%`;
+      confetti.style.animationDuration = `${2 + Math.random() * 3}s`;
+      confetti.style.animationDelay = `${Math.random() * 2}s`;
+      confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+      confettiContainer.appendChild(confetti);
+    }
+  </script>
+</body>
+</html>
