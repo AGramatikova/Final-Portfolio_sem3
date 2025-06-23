@@ -178,6 +178,17 @@
       border-top: 1px solid #000000;
       margin: 60px 0 40px 0;
     }
+    .clickable-image {
+      max-width: 300px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      cursor: pointer;
+      transition: transform 0.2s ease;
+    }
+
+    .clickable-image:hover {
+      transform: scale(1.03);
+    }
 
   </style>
 </head>
@@ -209,45 +220,63 @@
     <div class="search-right-icon">
       <img src="https://img.icons8.com/fluency-systems-regular/48/microphone.png" alt="Mic">
     </div>
+
+    <!-- Lightbox overlay -->
+    <div id="lightbox" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background: rgba(0,0,0,0.8); justify-content:center; align-items:center; z-index:9999;">
+      <span id="close-lightbox" style="position:absolute; top:20px; right:30px; color:white; font-size:30px; cursor:pointer;">&times;</span>
+      <img id="lightbox-image" src="" style="max-width:90%; max-height:90%; border-radius: 10px;" />
+    </div>
+    
   </div>
 
   <div class="second-bar">
       <h2>🎨 Logo Design Process</h2>
-      <h2>Iteration 1: Visual Research & Inspiration</h2>
+      <strong>Iteration 1: Visual Research & Inspiration</strong>
       <p>
         To begin the logo design, I researched the Platalea bird (our brand’s symbol) using Pinterest. 
         I looked for elegant and expressive images that reflected our intended tone of voice. 
-        I selected a few that stood out visually and felt aligned with the brand’s sophistication and beauty. <br>
-      📎 <a href="https://" target="_blank">Logo on Figma</a>
+        I selected a few that stood out visually and felt aligned with the brand’s sophistication and beauty. <br><br>
       </p>
 
-      <h2>Iteration 2: First Concept – Bird Outline</h2>
+      <strong>Iteration 2: First Concept – Bird Outline</strong>
       <p>
         Based on the chosen references, I experimented with a minimalist outline of the bird. 
         While the idea was simple and clear, the result lacked the elegance we were aiming for. 
         After presenting it to the team, we agreed it wasn’t strong enough: “It barely looks like a bird, and it doesn’t convey our elegant tone of voice.” 
         At this point, I realized the concept had potential, but the execution needed a new approach. <br>
+        <div style="text-align: center; margin-top: 30px;">
+          <img src="logo1.png" alt="logo Preview" class="clickable-image" />
+          <img src="logo1.5.png" alt="logo Preview" class="clickable-image" />
+        </div>
       </p>
 
-      <h2>Iteration 3: Exploring Alternatives</h2>
+      <strong>Iteration 3: Exploring Alternatives</strong>
       <p>
         While discussing alternatives, I asked if anyone in the group had illustration skills. Adeline offered to sketch something using her iPad.<br>
         Meanwhile, I explored another idea: outlining the continent of South America to hint at the bird’s origin. However, the concept lacked clarity and felt disconnected from our message, so I discarded it.<br>
         Next, I focused on typography. I tested different fonts for the name “Platalea” and experimented with integrating the text over a few image variations. The group thought some options were okay, but none truly stood out or felt memorable. <br><br>
+        <div style="text-align: center; margin-top: 30px;">
+          <img src="logo2.png" alt="logo Preview" class="clickable-image" />
+        </div>
       </p>
 
-      <h2>Iteration 4: Collaborative Breakthrough</h2>
+      <strong>Iteration 4: Collaborative Breakthrough</strong>
       <p>
         Adeline was in the final steps of the bird, but asked me for feedback on it. I shared my thought that the legs seem a bird weird and she agreed but didn’t know how to fix them. 
         As we sat at thought I came up with the idea that we use the L in our name as legs for the bird. The idea came from the Pixar lamp animation. 
         I also suggested making the bird flying in the beginning and after that landing on the L, but my teammates said I will most likely be hard to achieve and left it behind. 
+        <div style="text-align: center; margin-top: 30px;">
+          <img src="logo2.5.png" alt="logo Preview" class="clickable-image" />
+        </div>
       </p>
+      📎 <a href="https://www.figma.com/design/D0AByBnS26DElhhpjlQ0ip/Studio-Platalea?node-id=0-1&t=3AoOF14a5ARKSSP6-1" target="_blank">Logo on Figma</a><br><br>
+
+      <strong>Reflection</strong>
       <p>
-        <strong>Reflection:</strong>This iterative process taught me the value of open-mindedness and teamwork. Initially, I was attached to the idea of outlines, but through research, peer feedback, and collaborative problem-solving, we reached a much stronger and more elegant design. 
+        This iterative process taught me the value of open-mindedness and teamwork. Initially, I was attached to the idea of outlines, but through research, peer feedback, and collaborative problem-solving, we reached a much stronger and more elegant design. 
         The logo became a product of shared creativity, flexibility, and refinement over time.
         I learned how essential it is to embrace feedback, test multiple approaches, and not fear discarding ideas that don’t work. The final design not only aligns with our brand identity but also represents the growth and creativity of our team.        
       </p>
-
     
       <hr class="section-divider" />
 
@@ -260,43 +289,60 @@
 
       <h2>🧩 Stylescape Iteration</h2>
       <p>
-        Once we had our brand’s main elements – the logo, color palette, and fonts – I started putting everything together into a stylescape that could really show off our identity. I played around with fading geometric shapes using our colors, which added a soft and elegant feel to the layout. It made the whole thing more alive and eye-catching, while still matching the calm and refined tone we were going for.      📎 <a href="https://docs.google.com/document/d/1xI0cyeVfONF5r2oNGo3lpKNF8vHjONwQDDUJ8CmrNzQ/edit?usp=sharing" target="_blank">Double diamond link</a>
-        While trying out different versions, I experimented with background shades and spacing to make sure it didn’t look too busy. I also moved the logo to the corner, inspired by how brands often place theirs in packaging or web headers. After sharing it with the group, everyone agreed this version finally felt polished and professional.
+        Once we had our brand’s main elements – the logo, color palette, and fonts – I started putting everything together into a stylescape that could really show off our identity. I played around with fading geometric shapes using our colors, which added a soft and elegant feel to the layout. It made the whole thing more alive and eye-catching, while still matching the calm and refined tone we were going for. <br><br>
+        While trying out different versions, I experimented with background shades and spacing to make sure it didn’t look too busy. I also moved the logo to the corner, inspired by how brands often place theirs in packaging or web headers. After sharing it with the group, everyone agreed this version finally felt polished and professional.<br><br>
       </p>
+      📎 <a href="https://www.figma.com/design/D0AByBnS26DElhhpjlQ0ip/Studio-Platalea?node-id=102-2" target="_blank">Stylescape link</a>
 
       <hr class="section-divider" />
     
       <h2>💻 Website Concept Development</h2>
       <p>
-        At the same time, we started thinking about how the website would look and feel. I gave ideas for the layout, especially how to make the flow smooth and easy for users. I suggested that the site should scroll in sections, so each part felt like its own spotlight.
-        We all also made sure that the typography looked good on different backgrounds and tweaked the font sizes to make everything easier to read. Not all my suggestions made it into the final version, but they sparked some really good discussions in the group and helped us refine the direction we took.
-      <strong>Feedback:</strong> When we showed our progress to Dirk, he said the geometric shapes were working well visually, but suggested we create some structure or rules around them. That way, it wouldn’t just look abstract, and anyone trying to recreate the style in the future would have a clear guide to follow.
+        At the same time, we started thinking about how the website would look and feel.<br>
+        I gave ideas for the layout, especially how to make the flow smooth and easy for users.<br>
+        I suggested that the site should scroll in sections, so each part felt like its own spotlight.<br>
+        I also made sure that the typography looked good on different backgrounds and tweaked the font sizes to make everything easier to read.<br><br>
+        Not all my suggestions made it into the final version, but they sparked some really good discussions in the group and helped us refine the direction we took.<br><br>
+      <strong>Feedback:</strong> When we showed our progress to Dirk, he said the geometric shapes were working well visually, but suggested we create some structure or rules around them. That way, it wouldn’t just look abstract, and anyone trying to recreate the style in the future would have a clear guide to follow.<br><br>
       <strong>Reflection:</strong> Working on the stylescape and website concept really showed me how important consistency and feedback are when you're building a brand visually. It’s not just about making things look nice, it’s about making sure everything feels connected and reflects the identity we’re trying to build.
-      Throughout the process, I learned to test, adjust, and improve based on both my own instincts and the team’s feedback. It helped me gain confidence in turning design ideas into something real and meaningful. I also learned that sometimes you have to let go of certain ideas when they don’t quite fit the bigger picture, even if you like them. 
+      Throughout the process, I learned to test, adjust, and improve based on both my own instincts and the team’s feedback. It helped me gain confidence in turning design ideas into something real and meaningful. I also learned that sometimes you have to let go of certain ideas when they don’t quite fit the bigger picture, even if you like them. <br><br>
       </p>
+      📎 <a href="https://www.figma.com/design/D0AByBnS26DElhhpjlQ0ip/Studio-Platalea?node-id=115-8&t=SvTVu6Pa22gcRGDv-1" target="_blank">Website link</a>
+
     
       <hr class="section-divider" />
 
       <h2>🗣️ Client Interview</h2>
       <p>
-        Before jumping into any designs, me and Adeline took the lead on setting up and running our first real meeting with the client. It was super important for us to understand exactly what they were looking for, so we could make sure we were heading in the right direction from the start.        <strong>Reflection:</strong> <br>
-        I prepared a few key questions ahead of time about their goals, the kind of people they wanted to reach, and the overall vibe they were going for. During the meeting, we listened carefully and asked follow-up questions whenever something wasn’t clear. The conversation really helped us understand what mattered most to them—not just visually, but in terms of values and message.
-        Afterwards, we shared everything we learned with the rest of the team. That helped us all get on the same page and made sure we didn’t waste time designing something that didn’t match their vision.
-        <em>Why this was already an iteration?</em> Even though we hadn’t started sketching yet, this meeting was kind of like our first creative draft - it shaped the direction of everything that came after. By talking to the client, checking our assumptions, and adjusting our ideas based on their input, we were already working through our first real iteration.
-      <strong>Reflection:</strong> This made me realize that a big part of the design process actually happens before you even touch a design tool. Just having an open and honest conversation helped us avoid a lot of missteps later on. It also boosted our confidence in communicating with clients and showed us how important it is to ask the right questions early. It really sets the tone for the whole project. 
+        Before jumping into any designs, me and Adeline took the lead on setting up and running our first real meeting with the client. It was super important for us to understand exactly what they were looking for, so we could make sure we were heading in the right direction from the start. <br><br>
+        I prepared a few key questions ahead of time about their goals, the kind of people they wanted to reach, and the overall vibe they were going for.<br><br>
+        During the meeting, we listened carefully and asked follow-up questions whenever something wasn’t clear.<br>
+        The conversation really helped us understand what mattered most to them—not just visually, but in terms of values and message.<br><br>
+        Afterwards, we shared everything we learned with the rest of the team.<br>
+        That helped us all get on the same page and made sure we didn’t waste time designing something that didn’t match their vision.<br><br>
+        <em>Why this was already an iteration?</em><br>Even though we hadn’t started sketching yet, this meeting was kind of like our first creative draft - it shaped the direction of everything that came after. By talking to the client, checking our assumptions, and adjusting our ideas based on their input, we were already working through our first real iteration.<br><br>
+        <strong>Reflection:</strong> This made me realize that a big part of the design process actually happens before you even touch a design tool. Just having an open and honest conversation helped us avoid a lot of missteps later on. It also boosted our confidence in communicating with clients and showed us how important it is to ask the right questions early. It really sets the tone for the whole project. 
       </p>
-      📎 <a href="https://" target="_blank">Interview</a>
-    
+      📎 <a href="https://docs.google.com/document/d/1A-8qtK8CjlTw6MmyIcXWH2KCpszKpniLkwtzOj6jdJ8/edit?usp=sharing" target="_blank">Interview</a><br>
+      📎 <a href="https://docs.google.com/document/d/149ZXQX9KqcUTJeso2vHsSbcZU55dplZL3ZEcRX5F0is/edit?usp=sharing" target="_blank">Interview</a>
+      
       <hr class="section-divider" />
 
       <h2>🧪 User Testing – Finding the Right Layout</h2>
       <p>
-        When we started working on the gameplay section, I knew the layout would really affect how people used it. So I tried out a few different versions to see what worked best:
-        •	A horizontal layout, each text to question sectioned 
-        •	A vertical layout, where everything is stacked top to bottom
-        •	A version where each question had its own full screen
-        While testing, it became clear that some layouts didn’t work well. The horizontal one was hard to follow, and the one-question-per-screen layout felt too empty and slow. A few people even said it reminded them of boring school slides.
-        The vertical layout worked best. It was easy to scroll through, kept everything in one place, and felt clear without being too crowded. After choosing that one, I made a few small changes, like adjusting the spacing and text size, to make sure it looked clean and was easy to read.
+        When we started working on the gameplay section, I knew the layout would really affect how people used it.<br>
+        So I tried out a few different versions to see what worked best:<br>
+        •	A horizontal layout, each text to question sectioned <br>
+        •	A vertical layout, where everything is stacked top to bottom<br>
+        •	A version where each question had its own full screen<br><br>
+        <div style="text-align: center; margin-top: 30px;">
+          <img src="gameplay versions .png" alt="logo Preview" class="clickable-image" />
+        </div>
+        While testing, it became clear that some layouts didn’t work well.<br>
+        The virtical one was hard to follow, and the one-question-per-screen layout felt too empty and slow.<br>
+        A few people even said it reminded them of boring school slides.<br><br>
+        The horizontal layout worked best. It was easy to scroll through, kept everything in one place, and felt clear without being too crowded.<br><br>
+        After choosing that one, I made a few small changes, like adjusting the spacing and text size, to make sure it looked clean and was easy to read.<br><br>
         <strong>Reflection:</strong> Testing these different layouts really helped me see how small changes can totally change the way someone experiences a design. It also reminded me that your first idea isn’t always the best one—and that getting real feedback early on can save you a lot of guessing later.
       </p>
     
@@ -304,14 +350,38 @@
 
       <h2>🎨 Portfolio Design– From Concept to Connection</h2>
       <p>
-        At first, I had a completely different vision for my portfolio. I wanted something bold, with glowing colors, gradients, and a black background to make everything pop. I was really inspired by thermo-style illustrations and searched Pinterest to collect ideas that matched that vibe. I picked out the ones that felt the strongest to me and started designing based on that.
-        But as I kept working on it, something didn’t feel right. Even though the idea was cool, I didn’t feel connected to it. It didn’t really represent me or the message I wanted my portfolio to give off. That’s when I took a step back and started scrolling through a design account I’ve been following for a while. I came across a few different styles, but one that really stood out was a desktop screen-inspired layout.
-        That idea felt more personal and fun to me. So I searched again on Pinterest, this time with a clearer vision, and collected a few more references around the desktop style. In the end, I combined my favorite elements into one layout that felt creative but also true to me.
-        <strong>Feedback:</strong> During the third portfolio review, I received really positive feedback from both Chris and Medhat. They said the new design felt fun and interesting, and encouraged me to keep going with it. Chris pointed out that the Learning Outcome pages didn’t match the homepage in terms of style—and I completely agreed.
-        I explained that those were still the old versions and that I was planning to redesign them to match the desktop theme. After the review, I went ahead and did exactly that. Updating the pages to match the new style made the whole portfolio feel much more consistent and intentional.
-      <strong>Reflection:</strong> This part of the process taught me that design isn’t just about having a cool idea, t’s about making sure everything connects. My first concept looked good on its own, but it didn’t really feel like me, and I started to lose interest while working on it. Changing direction was honestly the best decision I made.
-      After switching to the desktop layout, I finally felt excited about the design again. It reflected my personality and made the whole portfolio feel more playful and original. But I also realized through feedback from Chris and Medhat that I had overlooked something important: consistency. They pointed out that my Learning Outcome pages didn’t match the homepage, and they were totally right, but I did explain they were still from the old design. I’m glad I was able to take that feedback and fix it right away. Looking back, I learned not just how to design, but how to step back, reflect, and actually listen to both myself and others.  
+        At first, I had a completely different vision for my portfolio.<br>
+        I wanted something bold, with glowing colors, gradients, and a black background to make everything pop.<br>
+        I was really inspired by thermo-style illustrations and searched Pinterest to collect ideas that matched that vibe.<br>
+        I picked out the ones that felt the strongest to me and started designing based on that.<br><br>
+        But as I kept working on it, something didn’t feel right.<br>
+        Even though the idea was cool, I didn’t feel connected to it. It didn’t really represent me or the message I wanted my portfolio to give off.<br><br>
+        That’s when I took a step back and started scrolling through a design account I’ve been following for a while.<br>
+        I came across a few different styles, but one that really stood out was a desktop screen-inspired layout.<br>
+        That idea felt more personal and fun to me. So I searched again on Pinterest, this time with a clearer vision, and collected a few more references around the desktop style.<br><br>
+        In the end, I combined my favorite elements into one layout that felt creative but also true to me.<br><br>
+        <strong>Feedback:</strong> During the third portfolio review, I received really positive feedback from both Chris and Medhat. They said the new design felt fun and interesting, and encouraged me to keep going with it. Chris pointed out that the Learning Outcome pages didn’t match the homepage in terms of style—and I completely agreed.<br>
+        I explained that those were still the old versions and that I was planning to redesign them to match the desktop theme. After the review, I went ahead and did exactly that. Updating the pages to match the new style made the whole portfolio feel much more consistent and intentional.<br><br>
+      <strong>Reflection:</strong> This part of the process taught me that design isn’t just about having a cool idea, t’s about making sure everything connects. My first concept looked good on its own, but it didn’t really feel like me, and I started to lose interest while working on it.<br>
+      Changing direction was honestly the best decision I made.<br><br>
+      After switching to the desktop layout, I finally felt excited about the design again. It reflected my personality and made the whole portfolio feel more playful and original.<br>
+      But I also realized through feedback from Chris and Medhat that I had overlooked something important: consistency. They pointed out that my Learning Outcome pages didn’t match the homepage, and they were totally right, but I did explain they were still from the old design.<br>I’m glad I was able to take that feedback and fix it right away. Looking back, I learned not just how to design, but how to step back, reflect, and actually listen to both myself and others.  <br><br>
+      📎 <a href="https://www.figma.com/design/eyT866pli9pdFFAzqYZ2fu/Untitled?node-id=0-1&t=agUj8NgAvnpleOBB-1" target="_blank">portfolio in figma</a>
+
     </p>
+
+    <script>
+      document.querySelectorAll('.clickable-image').forEach(img => {
+        img.addEventListener('click', function () {
+          document.getElementById('lightbox-image').src = this.src;
+          document.getElementById('lightbox').style.display = 'flex';
+        });
+      });
+      
+      document.getElementById('close-lightbox').addEventListener('click', function () {
+        document.getElementById('lightbox').style.display = 'none';
+      });
+      </script>
 
   </div>
 </body>
