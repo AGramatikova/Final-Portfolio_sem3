@@ -139,6 +139,18 @@
       margin: 60px 0 40px 0;
     }
 
+    .clickable-image {
+      max-width: 300px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      cursor: pointer;
+      transition: transform 0.2s ease;
+    }
+
+    .clickable-image:hover {
+      transform: scale(1.03);
+    }
+
   </style>
 </head>
 <body>
@@ -248,7 +260,18 @@
       <h2>📣 Feedback documentation in group project</h2>
       <p>
       We documented all teacher and client feedback in our Discord group and took time after each meeting to reflect together. We made actionable changes based on this feedback, such as simplifying the game interface, adjusting color contrasts, and making sure our tone stayed inclusive and professional.<br>
-pics
+      <div style="text-align: center; margin-top: 30px;">
+        <img src="discord feedback 2.png" alt="dicord feedback Preview" class="clickable-image" />
+        <img src="discord feedback 3.png" alt="dicord feedback Preview" class="clickable-image" />
+        <img src="discord feedback1.png" alt="dicord feedback Preview" class="clickable-image" />
+      </div>
+
+      <!-- Lightbox overlay -->
+      <div id="lightbox" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background: rgba(0,0,0,0.8); justify-content:center; align-items:center; z-index:9999;">
+        <span id="close-lightbox" style="position:absolute; top:20px; right:30px; color:white; font-size:30px; cursor:pointer;">&times;</span>
+        <img id="lightbox-image" src="" style="max-width:90%; max-height:90%; border-radius: 10px;" />
+      </div>
+      
       </p>
     
       <hr class="section-divider" />
@@ -256,7 +279,6 @@ pics
       <h2>🗂 Trello contribution </h2>
       <p>
         As every project we created a Trello board to keep track of all the tasks and make sure there were deadlines. As the leader in the group Jerryl should make sure we make one I was there helping he wrote down everything. We worked in a team by dividing work and picking what time would work best for deadlines. We did not use it as much as I wanted to thru out the whole project but we still kept each other in track and got everything done on time, I believe that was achieved by us communicating well especially the last two/three weeks.<br>              
-        <strong>Reflection:</strong> <br>
       </p>
       📎 <a href="https://trello.com/invite/b/67adb31387b758d9477f0010/ATTI016b125daa86ee8b80b61145f494fc2929FD5DF9/studio-platalea" target="_blank">Trello Link</a>
     
@@ -266,6 +288,10 @@ pics
       <p>
         In the begging I did not find use of adding comments in my code but recently I have been finding it helpful especially if there are a lot of stuff going on, or if I learned something new, implemented it but still had some trouble finding or fixing it correctly. Or just naming sections.<br>
         Aside from coding, I actively participated in group decisions, brainstorming sessions, and UI feedback rounds. I frequently voiced ideas in Discord, helped choose images and icons for pages, and even assisted in copywriting content like buttons and headings to stay aligned with our tone of voice.<br>
+        <div style="text-align: center; margin-top: 30px;">
+          <img src="comment1.png" alt="comments Preview" class="clickable-image" />
+          <img src="comment2.png" alt="comments Preview" class="clickable-image" />
+        </div>
       </p>
     
       <hr class="section-divider" />
@@ -273,7 +299,7 @@ pics
       <h2>🖥 Development Practices and Improvements</h2>
       <p>
         To improve the quality of our codebase, I began experimenting with code linters like Prettier to ensure consistent formatting across the team. I also discussed naming conventions and folder structure with teammates to keep everything organized.<br>
-        We occasionally performed informal code reviews by checking each other’s work before pushing to main, especially when it came to styling and interactions. I found that this helped me understand better ways of writing cleaner or more reusable code.<br>
+        We occasionally had code reviews by checking each other’s work before pushing to main, especially when it came to styling and interactions. I found that this helped me understand better ways of writing cleaner or more reusable code.<br>
         Finally, while our project doesn’t include automated testing, I’ve learned about its importance and would like to integrate basic testing tools in future projects like Jest or Cypress to catch bugs earlier and validate user interactions.<br>
         I’ve also want to start preparing a README.md file to explain how to run the website locally, the folder structure, and where to find key parts of the code. So this helps any  teacher quickly understand the project.<br>
       </p>
@@ -283,6 +309,19 @@ pics
       <h2>🔍 Additional Value</h2>
       ✅ <strong>Accessibility Consideration:</strong> I tried to reduce clutter, make text readable, and keep things simple for users with dyslexia.<br>
     
+      <script>
+        document.querySelectorAll('.clickable-image').forEach(img => {
+          img.addEventListener('click', function () {
+            document.getElementById('lightbox-image').src = this.src;
+            document.getElementById('lightbox').style.display = 'flex';
+          });
+        });
+        
+        document.getElementById('close-lightbox').addEventListener('click', function () {
+          document.getElementById('lightbox').style.display = 'none';
+        });
+        </script>
+
     </div>
   </div>
 </body>
