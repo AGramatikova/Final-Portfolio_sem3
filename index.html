@@ -16,12 +16,14 @@
       font-family: 'Segoe UI', sans-serif;
     }
 
+    /* Desktop background image setup */
     body {
       background: url('rainbow.jpg') no-repeat center center fixed;
       background-size: cover;
       overflow: hidden;
     }
 
+    /* Vertical sidebar with icons for each app */
     .sidebar {
       position: fixed;
       top: 0;
@@ -57,6 +59,7 @@
       transform: scale(1.1);
     }
 
+    /* Bottom taskbar styling */
     .taskbar {
       position: fixed;
       bottom: 0;
@@ -90,6 +93,7 @@
       font-weight: bold;
     }
 
+    /* Area behind open apps */
     #desktop {
       position: fixed;
       top: 0;
@@ -98,6 +102,7 @@
       bottom: 40px;
     }
 
+    /* App window styles */
     .app-window {
       position: absolute;
       top: 60px;
@@ -150,10 +155,11 @@
       background: #005a9e;
     }
 
+    /* Hidden start menu (appears on Start click) */
     #startMenu {
       position: fixed;
       bottom: 45px;
-      left: 15px; 
+      left: 15px;
       width: 300px;
       max-height: 400px;
       background: rgba(40, 40, 40, 0.98);
@@ -171,6 +177,7 @@
       font-size: 10px;
     }
 
+    /* Recycle bin icon styling */
     #recycleBin {
       position: fixed;
       bottom: 60px;
@@ -189,49 +196,50 @@
       font-size: 12px;
     }
 
-    /* Image Tab Styles */
+    /* Tab-style popup image window */
     .image-tab {
-  position: absolute;
-  width: 300px;
-  height: 200px;
-  background: #c0c0c0;
-  border: 2px solid #999;
-  box-shadow: 4px 4px 10px rgba(0,0,0,0.3);
-  font-family: 'Segoe UI', sans-serif;
-  display: flex;
-  flex-direction: column;
-  overflow: hidden;
-}
+      position: absolute;
+      width: 300px;
+      height: 200px;
+      background: #c0c0c0;
+      border: 2px solid #999;
+      box-shadow: 4px 4px 10px rgba(0,0,0,0.3);
+      font-family: 'Segoe UI', sans-serif;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
 
-.image-tab .tab-header {
-  background: #ddd;
-  padding: 5px 10px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-weight: bold;
-  border-bottom: 1px solid #aaa;
-}
+    .image-tab .tab-header {
+      background: #ddd;
+      padding: 5px 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-weight: bold;
+      border-bottom: 1px solid #aaa;
+    }
 
-.image-tab .close-tab {
-  background: transparent;
-  border: none;
-  color: #333;
-  font-size: 18px;
-  cursor: pointer;
-}
+    .image-tab .close-tab {
+      background: transparent;
+      border: none;
+      color: #333;
+      font-size: 18px;
+      cursor: pointer;
+    }
 
-.image-tab img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
+    .image-tab img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
   </style>
 </head>
 <body>
 
-  <!-- Sidebar -->
+  <!-- Sidebar with learning outcome buttons -->
   <div class="sidebar">
+    <!-- Each app representing the learning outcome -->
     <div class="sidebar-app" data-appid="1">
       <img src="MSPaint.webp" />
       <span>Learning Outcome 1</span>
@@ -258,21 +266,21 @@
     </div>
   </div>
 
-  <!-- Desktop Area -->
+  <!-- Area for app windows -->
   <div id="desktop"></div>
 
-  <!-- Recycle Bin -->
+  <!-- Recycle Bin icon -->
   <div id="recycleBin" class="sidebar-app">
     <img src="bin.png" />
     <div>Recycle Bin</div>
   </div>
 
-  <!-- Start Menu -->
+  <!-- Start Menu (hidden by default) -->
   <div id="startMenu"></div>
 
-  <!-- Taskbar -->
+  <!-- Bottom taskbar with Start and status -->
   <div class="taskbar">
-    <div class="taskbar-apps" style="display: flex; align-items: center; gap: 10px;">
+    <div class="taskbar-apps">
       <img id="startButton" src="https://img.icons8.com/ios-filled/28/000000/windows8.png" />
       <div id="taskbarApps"></div>
     </div>
@@ -282,51 +290,59 @@
     </div>
   </div>
 
+  <!-- Main interactive behavior -->
   <script>
+    // App content
     const apps = {
       1: {
         title: 'Learning Outcome 1',
         icon: 'MSPaint.webp',
-        content: `<p><strong>Conceptualize, design, and develop interactive media products</strong></p><p>You create engaging concepts and translate them into interactive validated media products...</p>`,
+        content: `<p><strong>Conceptualize, design, and develop interactive media products</strong></p><br>
+                  <p>You create engaging concepts and translate them into interactive validated media products by applying user-centered design principles, visual design techniques and by exploring emerging trends and developments in media, design and technologies.</p>`,
         fileUrl: 'LO1.html'
       },
       2: {
         title: 'Learning Outcome 2',
         icon: 'microsoft-word-2019-05-01.webp',
-        content: `<p><strong>Transferable production</strong></p><p>You document and comment your code using version control...</p>`,
+        content: `<p><strong>Transferable production</strong></p><br>
+                  <p>You document and comment your code using version control in a personal and team context and communicate technical recommendations.</p>`,
         fileUrl: 'LO2.html'
       },
       3: {
         title: 'Learning Outcome 3',
         icon: 'Google_Chrome_icon_(February_2022).svg.png',
-        content: `<p><strong>Creative iterations</strong></p><p>You present the successive iterations of your creative process...</p>`,
+        content: `<p><strong>Creative iterations</strong></p><br>
+                  <p>You present the successive iterations of your creative process, and the connections between them, of your methodically substantiated, iterative design and development process.</p>`,
         fileUrl: 'LO3.html'
       },
       4: {
         title: 'Learning Outcome 4',
         icon: 'Google-Translate-Icon-Logo-January-August-2015.png',
-        content: `<p><strong>Professional standards</strong></p><p>You apply a methodological approach...</p>`,
+        content: `<p><strong>Professional standards</strong></p><br>
+                  <p>Both individually and in teams, you apply a relevant methodological approach used in the professional field to formulate project goals, involve stakeholders, conduct applied research, provide advice, make decisions, and deliver reports. In doing so, you keep in view the relevant ethical, intercultural, and sustainable aspects.</p>`,
         fileUrl: 'LO4.html'
       },
       5: {
         title: 'Learning Outcome 5',
         icon: 'gmail-new.png',
-        content: `<p><strong>Personal leadership</strong></p><p>You are aware of your own strengths and weaknesses...</p>`,
+        content: `<p><strong>Personal leadership</strong></p><br>
+                <p>You are aware of your own strengths and weaknesses, both in the field of ICT and in your personal development. You choose actions in line with your core values to promote your personal growth and develop your learning atitude.</p>`,
         fileUrl: 'LO5.html'
       },
       aboutme: {
         title: 'About Me',
         icon: 'woman-icon-vector-trendy-flat-260nw-743283871.webp',
-        content: `<p>me.</p>`,
+        content: `<p>get to know me :) </p>`,
         fileUrl: 'AboutMe.html'
       }
     };
 
-    const opened = {};
+    const opened = {}; // Keep track of the opened apps
     const desktop = document.getElementById('desktop');
     const taskbarApps = document.getElementById('taskbarApps');
     const startMenu = document.getElementById('startMenu');
 
+    // Handles opening app windows dynamically
     function openApp(appId) {
       if (opened[appId]) {
         opened[appId].style.zIndex = getMaxZIndex() + 1;
@@ -374,6 +390,7 @@
       taskbarApps.appendChild(taskIcon);
     }
 
+    // Find current highest z-index to bring app to front
     function getMaxZIndex() {
       return [...document.querySelectorAll('.app-window, .image-tab')].reduce((max, el) => {
         const z = parseInt(getComputedStyle(el).zIndex) || 0;
@@ -381,6 +398,7 @@
       }, 1);
     }
 
+    // Bind sidebar click to open apps
     document.querySelectorAll('.sidebar-app').forEach(icon => {
       icon.addEventListener('click', () => {
         const id = icon.getAttribute('data-appid');
@@ -388,6 +406,7 @@
       });
     });
 
+    // Update clock every second
     function updateClock() {
       const now = new Date();
       document.getElementById('clock').textContent = now.toLocaleTimeString([], {
@@ -395,15 +414,15 @@
         minute: '2-digit'
       });
     }
-
     updateClock();
     setInterval(updateClock, 1000);
 
-    const startButton = document.getElementById('startButton');
-    startButton.addEventListener('click', () => {
+    // Toggle start menu visibility
+    document.getElementById('startButton').addEventListener('click', () => {
       startMenu.style.display = startMenu.style.display === 'none' || startMenu.style.display === '' ? 'flex' : 'none';
     });
 
+    // Start menu with app entries
     for (const id in apps) {
       const app = apps[id];
       const icon = document.createElement('div');
@@ -417,75 +436,54 @@
       startMenu.appendChild(icon);
     }
 
+    // Recycle bin opens animated images tabs
     recycleBin.addEventListener('click', () => {
-  const images = [
-    'bin1.jpg',
-    'bin2.jpg',
-    'bin3.jpg',
-    'bin4.jpg',
-    'bin5.jpg',
-    'bin6.jpg',
-    'bin7.jpg',
-    'bin8.jpg',
-    'bin9.jpg'
-  ]; 
+      const images = ['bin1.jpg','bin2.jpg','bin3.jpg','bin4.jpg','bin5.jpg','bin6.jpg','bin7.jpg','bin8.jpg','bin9.jpg'];
+      const desktopRect = desktop.getBoundingClientRect();
 
-  const desktopRect = desktop.getBoundingClientRect();
+      images.forEach((src, index) => {
+        setTimeout(() => {
+          const tab = document.createElement('div');
+          tab.className = 'image-tab';
+          const maxLeft = desktopRect.width - 320;
+          const maxTop = desktopRect.height - 220;
+          const left = Math.floor(Math.random() * maxLeft);
+          const top = Math.floor(Math.random() * maxTop);
+          tab.style.left = `${left}px`;
+          tab.style.top = `${top}px`;
+          tab.style.zIndex = getMaxZIndex() + 1;
 
-  images.forEach((src, index) => {
-    setTimeout(() => {
-      const tab = document.createElement('div');
-      tab.className = 'image-tab';
+          tab.innerHTML = `
+            <div class="tab-header">
+              <span>message</span>
+              <button class="close-tab">&times;</button>
+            </div>
+            <img src="${src}" alt="Aesthetic">
+          `;
+          desktop.appendChild(tab);
 
-      // Random positioning
-      const maxLeft = desktopRect.width - 320;
-      const maxTop = desktopRect.height - 220;
-      const left = Math.floor(Math.random() * maxLeft);
-      const top = Math.floor(Math.random() * maxTop);
+          // Close tab button
+          tab.querySelector('.close-tab').addEventListener('click', () => tab.remove());
 
-      tab.style.left = `${left}px`;
-      tab.style.top = `${top}px`;
-      tab.style.zIndex = getMaxZIndex() + 1;
-
-      tab.innerHTML = `
-        <div class="tab-header">
-          <span>message</span>
-          <button class="close-tab">&times;</button>
-        </div>
-        <img src="${src}" alt="Aesthetic">
-      `;
-
-      desktop.appendChild(tab);
-
-      tab.querySelector('.close-tab').addEventListener('click', () => {
-        tab.remove();
+          // Make tab draggable
+          let isDragging = false, offsetX, offsetY;
+          const header = tab.querySelector('.tab-header');
+          header.addEventListener('mousedown', e => {
+            isDragging = true;
+            offsetX = e.clientX - tab.offsetLeft;
+            offsetY = e.clientY - tab.offsetTop;
+            tab.style.zIndex = getMaxZIndex() + 1;
+          });
+          document.addEventListener('mousemove', e => {
+            if (isDragging) {
+              tab.style.left = e.clientX - offsetX + 'px';
+              tab.style.top = e.clientY - offsetY + 'px';
+            }
+          });
+          document.addEventListener('mouseup', () => isDragging = false);
+        }, index * 250);
       });
-
-      // Dragging logic
-      let isDragging = false, offsetX, offsetY;
-      const header = tab.querySelector('.tab-header');
-      header.addEventListener('mousedown', e => {
-        isDragging = true;
-        offsetX = e.clientX - tab.offsetLeft;
-        offsetY = e.clientY - tab.offsetTop;
-        tab.style.zIndex = getMaxZIndex() + 1;
-      });
-
-      document.addEventListener('mousemove', e => {
-        if (isDragging) {
-          tab.style.left = e.clientX - offsetX + 'px';
-          tab.style.top = e.clientY - offsetY + 'px';
-        }
-      });
-
-      document.addEventListener('mouseup', () => {
-        isDragging = false;
-      });
-
-    }, index * 250); 
-  });
-});
-
+    });
   </script>
 </body>
 </html>
