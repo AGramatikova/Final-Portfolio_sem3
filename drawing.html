@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,11 +10,12 @@
       background: black;
       font-family: Arial, sans-serif;
       color: white;
-      overflow-x: hidden;
+      overflow-x: hidden; /* Disable horizontal scrolling */
       height: auto;
       scroll-behavior: smooth;
       position: relative;
     }
+    
     canvas {
       position: fixed;
       top: 0;
@@ -23,7 +23,7 @@
       width: 100vw;
       height: 100vh;
       z-index: 0;
-      pointer-events: none;
+      pointer-events: none; /* Prevent the canvas from interfering with clicks */
     }
 
     nav {
@@ -57,18 +57,19 @@
       text-shadow: 0 0 4px black;
     }
     nav a.home-btn:hover {
-      background-color: rgba(255, 255, 255, 0.2);
+      background-color: rgba(255, 255, 255, 0.2); 
     }
 
+    
     #intro {
-      height: calc(100vh - 60px);
+      height: calc(100vh - 60px); 
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
       z-index: 10;
       position: relative;
-      user-select: none;
+      user-select: none; 
       text-align: center;
       padding: 0 20px;
     }
@@ -103,7 +104,7 @@
       text-align: center;
     }
 
-    /* Button styles */
+    /* Button styling */
     #openPdfBtn {
       position: absolute;
       bottom: 20px;
@@ -120,23 +121,27 @@
       transition: background-color 0.3s ease;
     }
     #openPdfBtn:hover {
-      background-color: #555;
+      background-color: #555; /* Hover effect for the button */
     }
   </style>
 </head>
 <body>
+  <!-- The canvas where drawing effects will happen -->
   <canvas id="lava"></canvas>
 
+  <!-- Navigation bar with logo and home button -->
   <nav>
     <img src="signature.png" alt="Logo" class="logo" />
     <a href="index.html" class="home-btn">Home</a>
   </nav>
 
+  <!-- Intro section with the title of the page -->
   <section id="intro">
     <h1>Learning Outcome 2</h1>
     <h2>Transferable production</h2>
   </section>
 
+  <!-- Content section with detailed text and a button to open a PDF -->
   <section id="content">
     <p>
       • Brand Guide - Tone of Voice Page<br />
@@ -151,29 +156,36 @@
       Me and Adeline were responsible for applying the Double Diamond method to guide our design process. We began by researching the method and combining it with CMD tools to explore the challenge. In the Discover phase, we interviewed Studio Krom and conducted research to understand the target audience and their needs. In the Define phase, we created personas and research to better understand different types of dyslexia and how they could be represented in a digital format. During the Develop phase, we explored potential solutions and gathered user feedback to refine our ideas.
     </p>
 
+    <!-- Button to open the full PDF document -->
     <button id="openPdfBtn">Open full PDF file</button>
   </section>
 
   <script>
+    // JavaScript for the canvas and light effects
+
     const canvas = document.getElementById('lava');
     const ctx = canvas.getContext('2d');
 
+    // Resize canvas to match the window size
     function resize() {
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
     }
-    window.addEventListener('resize', resize);
+    window.addEventListener('resize', resize); // Listen for resize events
     resize();
 
+    // Object to track mouse position
     let mouse = { x: -9999, y: -9999, px: -9999, py: -9999 };
 
+    // Update mouse position on movement
     document.addEventListener('mousemove', (e) => {
       mouse.px = mouse.x;
       mouse.py = mouse.y;
       mouse.x = e.clientX;
-      mouse.y = e.clientY + window.scrollY;
+      mouse.y = e.clientY + window.scrollY; // Add scroll position
     });
 
+    // Function to draw the gradient background on the canvas
     function drawBackground() {
       const grad = ctx.createLinearGradient(0, 0, canvas.width, canvas.height);
       grad.addColorStop(0, '#ff008c');      // pink start
@@ -181,29 +193,33 @@
       grad.addColorStop(0.7, '#7feb75');    // lighter green 
       grad.addColorStop(1, '#25ea3f');      // green end
       ctx.fillStyle = grad;
-      ctx.fillRect(0, 0, canvas.width, canvas.height);
+      ctx.fillRect(0, 0, canvas.width, canvas.height); // Fill the background with gradient
     }
 
-    const lightSpots = [];
+    const lightSpots = []; // Array to hold light spots
 
+    // Add a new light spot at the mouse position
     function addLightSpot(x, y) {
       lightSpots.push({ x, y, radius: 32.5, alpha: 1 });
     }
 
+    // Update the light spots, making them fade over time
     function updateLightSpots() {
       for (let spot of lightSpots) {
-        spot.alpha -= 0.01;
+        spot.alpha -= 0.01; // Decrease alpha to fade
       }
+      // Remove spots when they're fully faded
       for (let i = lightSpots.length - 1; i >= 0; i--) {
         if (lightSpots[i].alpha <= 0) lightSpots.splice(i, 1);
       }
     }
 
+    // Draw all the light spots on the canvas
     function drawLightSpots() {
       for (let spot of lightSpots) {
         const grad = ctx.createRadialGradient(spot.x, spot.y - window.scrollY, 0, spot.x, spot.y - window.scrollY, spot.radius);
-        grad.addColorStop(0, `rgba(255, 255, 255, ${spot.alpha * 0.6})`); // white 
-        grad.addColorStop(1, `rgba(255, 255, 255, 0)`);
+        grad.addColorStop(0, `rgba(255, 255, 255, ${spot.alpha * 0.6})`);
+        grad.addColorStop(1, `rgba(255, 255, 255, 0)`); 
         ctx.fillStyle = grad;
         ctx.beginPath();
         ctx.arc(spot.x, spot.y - window.scrollY, spot.radius, 0, Math.PI * 2);
@@ -211,26 +227,27 @@
       }
     }
 
+    // Main render loop
     function render() {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      drawBackground();
+      ctx.clearRect(0, 0, canvas.width, canvas.height); // Clear previous frames
+      drawBackground(); // Draw gradient background
 
       if (mouse.x !== -9999) {
         addLightSpot(mouse.x, mouse.y);
       }
 
-      updateLightSpots();
-      drawLightSpots();
+      updateLightSpots(); // (fade them)
+      drawLightSpots(); 
 
-      requestAnimationFrame(render);
+      requestAnimationFrame(render); // Loop the rendering
     }
 
     render();
 
-    // Button to open PDF 
+    // Open PDF when the button is clicked
     const openPdfBtn = document.getElementById('openPdfBtn');
     openPdfBtn.addEventListener('click', () => {
-      window.open('Learning Outcome 2.docx', '_blank');
+      window.open('Learning Outcome 2.docx', '_blank'); 
     });
   </script>
 </body>
